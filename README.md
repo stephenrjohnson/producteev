@@ -39,17 +39,17 @@ producteevclient.login("username","password")
 
 Get the server time
 ```ruby
-producteevclient.time("username","password")
+producteevclient.time
 ```
 
 Get as list of tasks
 ```ruby
-producteevclient.tasks.show_list()
+producteevclient.tasks.show_list
 ```
 
 Get as list of lables
 ```ruby
-producteevclient.labels.show_list()
+producteevclient.labels.show_list
 ```
 
 Dashboards, users and activities can also be used in the same way. Please note all httparty exceptions you will have to deal with. All function calls return a hash.
