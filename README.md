@@ -4,6 +4,7 @@ A Ruby wrapper for the Producteev REST API
 
 Supports all the API methods. If i have missed any let me know. 
 
+I need to write some tests i know, but if you feel like doing it just raise a merge request. 
 ## Installation
 
 Install the gem by issuing
