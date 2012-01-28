@@ -15,7 +15,7 @@ module Producteev
         @token = self.sendRequest("/users/login.json",param)['login']['token']
       end
 
-      def generateSig(parameters)
+      def generate_signature(parameters)
         signature = ""
        
         #sort the hash alphabetically
@@ -38,7 +38,7 @@ module Producteev
         if @token != nil
           options.merge!({:token => @token})
         end
-        options.merge!({:api_sig => generateSig(options)})
+        options.merge!({:api_sig => generate_signature(options)})
 
         if @debug
           response = self.class.get(path, {:query => options, :debug_output => $stderr})

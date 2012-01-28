@@ -1,6 +1,8 @@
+require File.expand_path('../lib/producteev/version.rb', __FILE__)
+
 Gem::Specification.new do |s|
   s.name        = 'producteev'
-  s.version     = '0.0.1'
+  s.version       = Producteev::VERSION::STRING.dup
   s.date        = '2012-01-26'
   s.summary     = "Api client for producteev"
   s.description = "Api client for producteev"

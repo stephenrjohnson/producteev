@@ -34,22 +34,26 @@ producteevclient = Producteev.new("api_key_from_producteev","api_secret_from_pro
 ```
 
 Login in as a user
+
 ```ruby
 producteevclient.login("username","password")
 ```
 
 Get the server time
+
 ```ruby
 producteevclient.time
 ```
 
 Get as list of tasks
+
 ```ruby
 producteevclient.tasks.show_list
 producteevclient.tasks.show_list({:page=>1})
 ```
 
 Get as list of lables
+
 ```ruby
 producteevclient.labels.show_list
 producteevclient.labels.show_list({:page=>1})
