@@ -36,27 +36,28 @@ producteevclient = Producteev.new("api_key_from_producteev","api_secret_from_pro
 Login in as a user
 
 ```ruby
-producteevclient.login("username","password")
+client1 = producteevclient.login("username","password")
+client2 =  producteevclient.login("username1","password1")
 ```
 
 Get the server time
 
 ```ruby
-producteevclient.time
+client1.time
 ```
 
 Get as list of tasks
 
 ```ruby
-producteevclient.tasks.show_list
-producteevclient.tasks.show_list({:page=>1})
+client1.tasks.show_list
+client2.tasks.show_list({:page=>1})
 ```
 
 Get as list of lables
 
 ```ruby
-producteevclient.labels.show_list
-producteevclient.labels.show_list({:page=>1})
+client1.labels.show_list
+client2.labels.show_list({:page=>1})
 ```
 
 Dashboards, users and activities can also be used in the same way. Please note all httparty exceptions you will have to deal with. All function calls return a hash.
