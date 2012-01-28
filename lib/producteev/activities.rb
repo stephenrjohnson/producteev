@@ -6,19 +6,19 @@ module Producteev
       end
 
       def show_activities(options = {})
-        return @api.sendRequest("/activities/show_activities.json",options)
+        return @api.send_request("/activities/show_activities.json",options)
       end
 
       def show_notifications(options = {})
-        return @api.sendRequest("/activities/show_notifications.json",options)
+        return @api.send_request("/activities/show_notifications.json",options)
       end
 
       def notifications_set_read(options = {})
-        return @api.sendRequest("/activities/notifications_set_read.json",options)
+        return @api.send_request("/activities/notifications_set_read.json",options)
       end
 
       def set_read(options = {})
-        return @api.sendRequest("/activities/set_read.json",options)
+        return @api.send_request("/activities/set_read.json",options)
       end
   end
 end

@@ -12,7 +12,7 @@ module Producteev
 
       def login(email,password)
         param = {:email => email, :password => password}
-        @token = self.sendRequest("/users/login.json",param)['login']['token']
+        @token = self.send_request("/users/login.json",param)['login']['token']
       end
 
       def generate_signature(parameters)
@@ -32,7 +32,7 @@ module Producteev
       end
 
 
-      def sendRequest(path, options={})
+      def send_request(path, options={})
         options.merge!({:api_key => @apikey})
 
         if @token != nil

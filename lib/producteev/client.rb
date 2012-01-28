@@ -19,7 +19,7 @@ module Producteev
     end
 
     def time()
-     return @api.sendRequest("/time.json")
+     return @api.send_request("/time.json")
     end
 
     def activities()
