@@ -1,8 +1,8 @@
 module Producteev
   module VERSION
-    MAJOR = 0
+    MAJOR = 1
     MINOR = 0
-    PATCH = 3
+    PATCH = 0
     BUILD = nil
 
     STRING = [MAJOR, MINOR, PATCH, BUILD].compact.join('.');

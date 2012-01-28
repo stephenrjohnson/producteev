@@ -16,7 +16,12 @@ module Producteev
   class << self
 
     def new(apikey,secret, debug = false)
-      Producteev::Client.new(apikey,secret,debug)
+      Producteev::Api.instance.api_set(apikey,secret, debug)
+      return self
+    end
+
+    def login (username, password)
+    	return Producteev::Client.new(username, password)
     end
   end
 end

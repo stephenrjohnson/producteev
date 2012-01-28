@@ -3,17 +3,19 @@ module Producteev
       include HTTParty
       base_uri 'https://api.producteev.com/'
 
-      def initialize(apikey,secret, debug)
-        @apikey = apikey
-        @secret = secret
-        @token = nil
-        @debug = debug
+      @@instance = Api.new
+     
+      def self.instance
+        return @@instance
       end
 
-      def login(email,password)
-        param = {:email => email, :password => password}
-        @token = self.send_request("/users/login.json",param)['login']['token']
+      def api_set(apikey, secret, debug)
+        @@apikey = apikey
+        @@secret = secret
+        @debug = debug
       end
+     
+      private_class_method :new
 
       def generate_signature(parameters)
         signature = ""
@@ -26,17 +28,17 @@ module Producteev
             signature = "#{signature}#{key}#{value}"
           end
         }
-        signature = signature+@secret
+        signature = "#{signature}#{@@secret}"
         signature = Digest::MD5.hexdigest(signature)
         return signature
       end
 
 
-      def send_request(path, options={})
-        options.merge!({:api_key => @apikey})
+      def send_request(path, options={},token = nil)
+        options.merge!({:api_key => @@apikey})
 
-        if @token != nil
-          options.merge!({:token => @token})
+        if token != nil
+          options.merge!({:token => token})
         end
         options.merge!({:api_sig => generate_signature(options)})
 

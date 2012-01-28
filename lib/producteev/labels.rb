@@ -1,32 +1,31 @@
 module Producteev
     class Labels
-      @api = nil
-      def initialize(api)
-        @api = api
+      def initialize(token)
+        @token = token
       end
 
       def create(options = {})
-        return @api.send_request("/labels/create.json",options)
+        return Producteev::Api.instance.send_request("/labels/create.json",options,@token)
       end
 
       def delete(options = {})
-        return @api.send_request("/labels/delete.json",options)
+        return Producteev::Api.instance.send_request("/labels/delete.json",options,@token)
       end
 
       def view(options = {})
-        return @api.send_request("/labels/view.json",options)
+        return Producteev::Api.instance.send_request("/labels/view.json",options,@token)
       end
 
       def show_list(options = {})
-        return @api.send_request("/labels/show_list.json",options)
+        return Producteev::Api.instance.send_request("/labels/show_list.json",options,@token)
       end
 
       def tasks(options = {})
-        return @api.send_request("/labels/tasks.json",options)
+        return Producteev::Api.instance.send_request("/labels/tasks.json",options,@token)
       end
 
       def set_title(options = {})
-        return @api.send_request("/labels/set_title.json",options)
+        return Producteev::Api.instance.send_request("/labels/set_title.json",options,@token)
       end
   end
 end
