@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.description = "Api client for producteev"
   s.authors     = ["Stephen Johnson"]
   s.email       = 'steve@thatbytes.co.uk'
-  s.files       = ["lib/hola.rb"]
+  s.required_ruby_version = '>= 1.9.2'
   s.homepage    =
     'http://github.com/stephenrjohnson/producteev'
   
