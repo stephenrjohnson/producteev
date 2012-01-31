@@ -19,15 +19,16 @@ module Producteev
 
       def generate_signature(parameters)
         signature = ""
-       
-        #sort the hash alphabetically
-        parameters = parameters.sort
+
+        parameters = parameters.sort_by { |name, value| name.to_s }
+        #sort the hash alphabetically and make an array
 
         parameters.each { |key,value|  
           if (value.kind_of? String or value.kind_of? Integer)
             signature = "#{signature}#{key}#{value}"
           end
         }
+
         signature = "#{signature}#{@@secret}"
         signature = Digest::MD5.hexdigest(signature)
         return signature
