@@ -1,12 +1,21 @@
 GEM
   remote: http://rubygems.org/
   specs:
+    diff-lcs (1.1.3)
     httparty (0.8.1)
       multi_json
       multi_xml
     json (1.6.5)
     multi_json (1.0.4)
     multi_xml (0.4.1)
+    rspec (2.8.0)
+      rspec-core (~> 2.8.0)
+      rspec-expectations (~> 2.8.0)
+      rspec-mocks (~> 2.8.0)
+    rspec-core (2.8.0)
+    rspec-expectations (2.8.0)
+      diff-lcs (~> 1.1.2)
+    rspec-mocks (2.8.0)
 
 PLATFORMS
   ruby
@@ -14,3 +23,4 @@ PLATFORMS
 DEPENDENCIES
   httparty
   json
+  rspec

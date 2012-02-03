@@ -9,7 +9,7 @@ module Producteev
         return @@instance
       end
 
-      def api_set(apikey, secret, debug)
+      def api_set(apikey, secret, debug = false)
         @@apikey = apikey
         @@secret = secret
         @debug = debug
