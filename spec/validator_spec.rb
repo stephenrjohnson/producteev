@@ -10,10 +10,12 @@ describe Producteev::Validator do
     Producteev::Validator.validate(data,data).should == true
   end
 
-   it "it should return false if the required fields are not there" do
+   it "it should raise ValidatioException if the required fields missing" do
     data = { :one => "", :two => ""}
     data2 = { :one => ""}
-    Producteev::Validator.validate(data,data2).should == false
+    lambda { 
+        Producteev::Validator.validate(data,data2)
+        }.should raise_error(Producteev::ValidationException)
   end
 
 end
