@@ -16,7 +16,7 @@ describe Producteev::Api do
 
   it "should generate the correct signature with 0 inputs" do
     sign = "202cb962ac59075b964b07152d234b70"
-    Producteev::Api.instance.generate_signature("").should == sign
+    Producteev::Api.instance.generate_signature({}).should == sign
   end
 
   it "should generate the correct signature with an hash/hash input" do
