@@ -1,59 +1,59 @@
 module Producteev
-    class Api
-      include HTTParty
-      base_uri 'https://api.producteev.com/'
+  class Api
+    include HTTParty
+    base_uri 'https://api.producteev.com/'
 
-      @@instance = Api.new
-     
-      def self.instance
-        return @@instance
-      end
+    @@instance = Api.new
 
-      def api_set(apikey, secret, debug = false)
-        @@apikey = apikey
-        @@secret = secret
-        @debug = debug
-      end
-     
-      private_class_method :new
+    def self.instance
+      return @@instance
+    end
 
-      def generate_signature(parameters)
-        signature = ""
+    def api_set(apikey, secret, debug = false)
+      @@apikey = apikey
+      @@secret = secret
+      @debug = debug
+    end
 
-        parameters = parameters.sort_by { |name, value| name.to_s }
-        #sort the hash alphabetically and make an array
+    private_class_method :new
 
-        parameters.each { |key,value|  
-          if (value.kind_of? String or value.kind_of? Integer)
-            signature = "#{signature}#{key}#{value}"
-          end
-        }
+    def generate_signature(parameters)
+      signature = ""
 
-        signature = "#{signature}#{@@secret}"
-        signature = Digest::MD5.hexdigest(signature)
-        return signature
-      end
+      parameters = parameters.sort_by { |name, value| name.to_s }
+      #sort the hash alphabetically and make an array
 
-
-      def send_request(path, options={},token = nil)
-        options.merge!({:api_key => @@apikey})
-
-        if token != nil
-          options.merge!({:token => token})
+      parameters.each { |key,value|
+        if (value.kind_of? String or value.kind_of? Integer)
+          signature = "#{signature}#{key}#{value}"
         end
-        options.merge!({:api_sig => generate_signature(options)})
+      }
 
-        if @debug
-          response = self.class.get(path, {:query => options, :debug_output => $stderr})
-        else
-          response = self.class.get(path, {:query => options})
-        end
+      signature = "#{signature}#{@@secret}"
+      signature = Digest::MD5.hexdigest(signature)
+      return signature
+    end
 
-        if response.success?
-          return JSON.parse(response.body)
-        else
-          raise response.response    
-        end    
+
+    def send_request(path, options={},token = nil)
+      options.merge!({:api_key => @@apikey})
+
+      if token != nil
+        options.merge!({:token => token})
       end
+      options.merge!({:api_sig => generate_signature(options)})
+
+      if @debug
+        response = self.class.get(path, {:query => options, :debug_output => $stderr})
+      else
+        response = self.class.get(path, {:query => options})
+      end
+
+      if response.success?
+        return JSON.parse(response.body)
+      else
+        raise response.response
+      end
+    end
   end
 end

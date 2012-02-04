@@ -22,7 +22,7 @@ module Producteev
     end
 
     def login (username, password)
-    	return Producteev::Client.new(username, password)
+      return Producteev::Client.new(username, password)
     end
   end
 end
