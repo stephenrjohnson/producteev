@@ -1,7 +1,6 @@
 # Producteev Api
 
 A Ruby wrapper for the Producteev REST API 
-## Ruby >=1.9.2 is needed!
 
 Supports all the API methods. If i have missed any let me know. More information on the API can be found at http://code.google.com/p/producteev-api/wiki/methodsDescriptions#Summary
 
