@@ -21,7 +21,7 @@ module Producteev
     end
 
     def my_tasks(options = {})
-      return  Producteev::Api.instance.send_request("/tasks/show_list.json",options,@token)
+      return  Producteev::Api.instance.send_request("/tasks/my_tasks.json",options,@token)
     end
 
     def my_tasks(options = {})
