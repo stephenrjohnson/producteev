@@ -24,7 +24,7 @@ module Producteev
       return  Producteev::Api.instance.send_request("/tasks/my_tasks.json",options,@token)
     end
 
-    def my_tasks(options = {})
+    def archived(options = {})
       return  Producteev::Api.instance.send_request("/tasks/archived.json",options,@token)
     end
 
