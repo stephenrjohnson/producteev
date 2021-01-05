@@ -5,7 +5,7 @@ GEM
     httparty (0.8.1)
       multi_json
       multi_xml
-    json (1.6.5)
+    json (2.3.0)
     multi_json (1.0.4)
     multi_xml (0.4.1)
     rspec (2.8.0)
